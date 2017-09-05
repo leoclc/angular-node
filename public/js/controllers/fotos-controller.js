@@ -3,7 +3,10 @@
 angular.module('studying').controller('FotosController', function($scope, $http) {
     $scope.fotos = [];
     var promise = $http.get('/v1/fotos'); 
-    promise.then(function(retorno) {
-        $scope.fotos = retorno.data;
+    promise.success(function(data) {
+        $scope.fotos = data;
+    })
+    .error(function(error) {
+        console.log(error);
     });
 });

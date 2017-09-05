@@ -1,1 +1,1 @@
-angular.module('studying', []);
+angular.module('studying', ['directives']);
