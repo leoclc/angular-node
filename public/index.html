@@ -16,9 +16,18 @@
             <div class="jumbotron">  
                 <h1 class="text-center">Angular</h1>
             </div>
-            <my-panel ng-repeat="foto in fotos" titulo="{{foto.titulo}}">>
-                <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
-            </my-panel>
-        </div> <!-- fim container -->        
+            <div class="row">
+                <div class="col-md-12">
+                <form>
+                    <input type="text" class="form-control" placeholder="Filter by title" ng-model="filtro" ng-model-options="{ debounce: 500 }"/>
+                </form>
+                </div>
+            </div>
+            <div class="row">
+                <my-panel ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.titulo}}">
+                    <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
+                </my-panel>
+            </div>
+        </div>       
     </body>
 </html>
