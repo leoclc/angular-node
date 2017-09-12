@@ -1,1 +1,1 @@
-angular.module('studying', ['directives']);
+angular.module('studying', ['directives','ngAnimate']);
