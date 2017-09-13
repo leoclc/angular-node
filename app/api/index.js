@@ -6,7 +6,7 @@ api.adiciona = function(req, res) {
     
     db.insert(req.body, function(err, newDoc) {
         if(err) return console.log(err);
-        console.log('Adicionado com sucesso: ' + newDoc._id);
+        console.log('Successfully added: ' + newDoc._id);
         res.json(newDoc._id);
     });  
 };
@@ -24,7 +24,7 @@ api.atualiza = function(req, res) {
         if (err) return console.log(err);
         if(numReplaced) res.status(200).end();
         res.status(500).end();
-        console.log('Atualizado com sucesso: ' + req.body._id);
+        console.log('Successfully updated: ' + req.body._id);
         res.status(200).end();
     });  
 };
@@ -49,7 +49,7 @@ api.remove = function(req, res) {
 
     db.remove({ _id: req.params.fotoId }, {}, function (err, numRemoved) {
         if (err) return console.log(err);
-        console.log('removido com sucesso');
+        console.log('Successfully removed foto');
         if(numRemoved) res.status(200).end();
         res.status(500).end();
     });

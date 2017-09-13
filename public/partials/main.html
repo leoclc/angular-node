@@ -1,15 +1,27 @@
 <div class="jumbotron">  
     <h1 class="text-center">Angular</h1>
 </div>
+<p ng-show="message.length" class="alert alert-info">
+    {{message}}
+</p>
 <div class="row">
     <div class="col-md-12">
         <form>
-            <input type="text" class="form-control" placeholder="Filter by title" ng-model="filtro" ng-model-options="{ debounce: 500 }">
+             <div class="input-group">
+                <span class="input-group-btn">
+                    <a href="/fotos/new" class="btn btn-primary" type="button">
+                        Nova foto
+                    </a>
+                </span>
+                <input class="form-control" placeholder="filtrar pelo título da foto" ng-model="filtro" ng-model-options="{ debounce: 500 }">
+            </div> 
         </form>
     </div>
 </div>
 <div class="row">
     <my-panel class="col-md-2 fade-effect" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.titulo}}">
         <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
+        <a class="btn btn-primary btn-block" href="/foto/edit/{{foto._id}}">Editar</a>
+        <button class="btn btn-danger btn-block" ng-click="remove(foto)">Remove</button>
     </my-panel>
 </div>
